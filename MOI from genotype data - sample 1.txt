@@ -1,0 +1,29 @@
+##### Dr.Andrew Walakira, adwalakira@gmail.com  ###############
+
+# Sample data: Genotype data for 3 loci in 5 samples
+genotype_data <- list(
+  locus1 = c("A", "A", "B", "A", "B"),
+  locus2 = c("C", "C", "C", "D", "C"),
+  locus3 = c("E", "F", "E", "F", "E")
+)
+
+# Function to estimate MOI
+estimate_moi <- function(genotype_data) {
+  # Count unique alleles for each locus
+  allele_counts <- sapply(genotype_data, function(locus) {
+    length(unique(locus))
+  })
+  
+  # Initial MOI estimate
+  moi_initial <- max(allele_counts)
+  
+  # Placeholder for statistical adjustment (if any)
+  moi_adjusted <- moi_initial # Simplified example without adjustment
+  
+  return(moi_adjusted)
+}
+
+# Estimate MOI for the sample data
+moi_estimate <- estimate_moi(genotype_data)
+print(paste("Estimated MOI:", moi_estimate))
+
